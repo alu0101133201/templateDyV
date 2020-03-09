@@ -22,10 +22,13 @@ int main(int argc, char* argv[]){
 
 	std::vector<int> prueba;
 	prueba.push_back(3);
-	prueba.push_back(2);
-	prueba.push_back(0);
-	prueba.push_back(1);
 	prueba.push_back(8);
+	prueba.push_back(2);
+	prueba.push_back(1);
+	prueba.push_back(7);
+	prueba.push_back(6);
+	prueba.push_back(2);
+
 
 
 	Problema* problema = new MergeP(prueba);
@@ -40,6 +43,6 @@ int main(int argc, char* argv[]){
 	framework1->divideyVenceras(problema1, solucion1);
 
 	cout << "\nResultado:" << endl;
-	solucion->resolver();
+	solucion1->resolver();
 
 };
