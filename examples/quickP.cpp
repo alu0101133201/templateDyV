@@ -18,12 +18,12 @@ pair<Problema*,Problema*> quickP::descomponer() {
 	pair<Problema*,Problema*> subProblemas;
 
   
-  int izq = 1;
+  int izq = 0;
   int dcha = _n.size() - 1;
   int pivote = _n[0];
   int aux;
 
-  while (izq <= dcha) {
+  while (izq < dcha) {
     while (_n[izq] < pivote)
       izq++;
     while (_n[dcha] > pivote)
