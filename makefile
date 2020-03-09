@@ -5,7 +5,7 @@ CFLAGS=-g -O2
 LDFLAGS=-g -O2
 
 FRAMEWORK_SRS=framework/Framework.cpp framework/Problema.cpp framework/Solucion.cpp
-EXAMPLE_SRS=examples/MergeP.cpp examples/MergeS.cpp
+EXAMPLE_SRS=examples/MergeP.cpp examples/MergeS.cpp examples/quickP.cpp examples/quickS.cpp
 
 SRCS=main.cpp $(FRAMEWORK_SRS) $(EXAMPLE_SRS)
 OBJS=$(subst .cpp,.o,$(SRCS))
