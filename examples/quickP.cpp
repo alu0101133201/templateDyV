@@ -11,14 +11,16 @@ quickP::~quickP() {
 }
 
 bool quickP::isCasoMinimo() {
-	return (_n.size() < 2);
+	return (_n.size() < 3);
 }
 
 pair<Problema*,Problema*> quickP::descomponer() {
 	pair<Problema*,Problema*> subProblemas;
 
+  for (int i = 0; i < _n.size(); i++)
+    std::cout << _n[i] << " ";
   
-  int izq = 0;
+  int izq = 1;
   int dcha = _n.size() - 1;
   int pivote = _n[0];
   int aux;
@@ -45,20 +47,32 @@ pair<Problema*,Problema*> quickP::descomponer() {
   std::vector<int> primerVector;
   std::vector<int> segundoVector;
 
-  std::cout << "derecha vale: " << dcha << "\n";
   for (int i = 0; i <= dcha; i++) {
       primerVector.push_back(_n[i]);
   }
-  std::cout << "El size de n es: " << _n.size() << "\n";
   for (int i = dcha + 1; i < _n.size(); i++) {
-    std::cout << "Se está meitneod el índice i e ne l segundo vector: " << i << "\n";
       segundoVector.push_back(_n[i]);
   }
+
 	subProblemas.first = new quickP(primerVector);
 	subProblemas.second = new quickP(segundoVector);
 	return subProblemas;
 }
 
 void quickP::solver(Solucion* s) {
-	((quickS*)s)->setValor(_n);
+  std::vector<int> aux;
+  if (_n.size() == 2) {
+    if (_n[0] > _n[1]) {
+      aux.push_back(_n[1]);
+      aux.push_back(_n[0]);
+    }
+    else {
+      aux = _n;
+    }
+    ((quickS*)s)->setValor(aux);
+  }
+  else {
+    ((quickS*)s)->setValor(_n);
+
+  }
 }

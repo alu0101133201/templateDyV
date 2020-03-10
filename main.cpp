@@ -14,20 +14,17 @@ using namespace std;
 
 
 int main(int argc, char* argv[]){
-	/*
-	if (argc != 2) {
+	std::vector<int> prueba(argc - 1);
+
+	if (argc < 2) {
 		cout << "\nNúmero de parametros incorrecto. Encontrado " << argc-1 << " requerido 1."<< endl;
 		exit(-1);
-	}*/
+	} else {
+    for (int i = 1; i < argc; i++) {
+      prueba[i-1] = atoi(argv[i]);
+    }
+  }
 
-	std::vector<int> prueba;
-	prueba.push_back(3);
-	prueba.push_back(8);
-	prueba.push_back(2);
-	prueba.push_back(1);
-	prueba.push_back(7);
-	prueba.push_back(6);
-	prueba.push_back(2);
 
 
 
@@ -42,7 +39,10 @@ int main(int argc, char* argv[]){
 	framework->divideyVenceras(problema, solucion);
 	framework1->divideyVenceras(problema1, solucion1);
 
-	cout << "\nResultado:" << endl;
+	cout << "\nResultado merge:" << endl;
+	solucion->resolver();
+
+	cout << "\nResultado quicksort:" << endl;
 	solucion1->resolver();
 
 };
